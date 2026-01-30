@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "type": "square",
+    "size": 30
+  },
+  {
+    "id": 2,
+    "type": "circle",
+    "radius": 25
+  },
+  {
+    "id": 3,
+    "type": "rectangle",
+    "width": 50,
+    "height": 20
+  },
+  {
+    "id": 4,
+    "type": "square",
+    "size": 15
+  },
+  {
+    "id": 5,
+    "type": "circle",
+    "radius": 45
+  },
+  {
+    "id": 6,
+    "type": "rectangle",
+    "width": 50,
+    "height": 90
+  },
+  {
+    "id": 7,
+    "type": "square",
+    "size": 30
+  },
+  {
+    "id": 8,
+    "type": "circle",
+    "radius": 125
+  },
+  {
+    "id": 9,
+    "type": "rectangle",
+    "width": 50,
+    "height": 230
+  }
+]
