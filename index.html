@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Data Repository</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #333;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .endpoint {
+            background: #e7f3ff;
+            padding: 10px;
+            border-left: 4px solid #2196F3;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Static Data Repository</h1>
+    <p>This repository hosts static JSON data that can be fetched from GitHub Pages.</p>
+    
+    <div class="endpoint">
+        <strong>Data Endpoint:</strong>
+        <code id="endpoint"></code>
+    </div>
+    
+    <h2>Available Data</h2>
+    <p>The <code>data.json</code> file contains shape information:</p>
+    
+    <h3>Usage Example</h3>
+    <pre><code>fetch('https://tismas.github.io/static-data/data.json')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));</code></pre>
+    
+    <h3>Data Structure</h3>
+    <pre id="data"></pre>
+    
+    <script>
+        // Display the current endpoint
+        const endpoint = window.location.origin + window.location.pathname.replace('index.html', '') + 'data.json';
+        document.getElementById('endpoint').textContent = endpoint;
+        
+        // Fetch and display the data
+        fetch('data.json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('data').textContent = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                document.getElementById('data').textContent = 'Error loading data: ' + error.message;
+            });
+    </script>
+</body>
+</html>
