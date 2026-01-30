@@ -57,7 +57,10 @@
     
     <script>
         // Display the current endpoint
-        const endpoint = window.location.origin + window.location.pathname.replace('index.html', '') + 'data.json';
+        const basePath = window.location.pathname.endsWith('/') 
+            ? window.location.pathname 
+            : window.location.pathname.replace(/\/[^/]*$/, '/');
+        const endpoint = window.location.origin + basePath + 'data.json';
         document.getElementById('endpoint').textContent = endpoint;
         
         // Fetch and display the data
@@ -67,6 +70,7 @@
                 document.getElementById('data').textContent = JSON.stringify(data, null, 2);
             })
             .catch(error => {
+                console.error('Error loading data:', error);
                 document.getElementById('data').textContent = 'Error loading data: ' + error.message;
             });
     </script>
